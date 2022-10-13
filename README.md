@@ -6,14 +6,12 @@ These scripts are for forensics practioneer aware of the risks of using this sof
 The quality of the coding is amateurish level since is to be considered a learning experiment to solve some challenges of a forensics analyst, that has never been a professional developer, approaching case of the AWS scale.
 
 
-The code of the win memory dumps benefits form optimizations and ideas of the CSIRT-Collect project from dwmetz Doug Metz that I discovered at the end of this journey
-
-https://github.com/dwmetz/CSIRT-Collect
+The code of the win memory dumps scripts benefits from snippets, optimizations and ideas of the CSIRT-Collect project from dwmetz Doug Metz that I discovered near the end of this journey https://github.com/dwmetz/CSIRT-Collect
 
 
 ## ec2-win-DumpMemory-net
 
-Function: 
+Function:
 This script will 
 - download Magnet Ram Capture, WinPmem, AWS CLI from internet to your AWS EC2 instance
 - capture a memory image with Magnet Ram Capture and WinPmem
@@ -29,7 +27,7 @@ Prerequisites:
 
 
 ## ec2-win-DumpMemory-isolated
-Function: 
+Function:
 This script will 
 - download Magnet Ram Capture, WinPmem, AWS CLI from a preconfigured AWS S3 bucket to your AWS EC2 instance
 - capture a memory image with Magnet Ram Capture and WinPmem
@@ -44,7 +42,7 @@ Prerequisites:
 
 
 ## setup-DumpMemory-isolated
-Function: 
+Function:
 This script will 
 - download Magnet Ram Capture, WinPmem, AWS CLI from internet to your AWS S3 bucket
 Prerequisites:
