@@ -22,7 +22,7 @@ Prerequisites:
 - Updated URL references for tool download
 - An S3 Bucket accessible by the EC2 instance for artificats upload
 
-- OPTIONAL: if you run the script via AWS SSM the EC2 instance must have assigned an IAM role that includes SSM support
+- OPTIONAL: if you run the script via AWS SSM the EC2 instance must have assigned an IAM role that includes SSM support (AmazonSSMManagedInstanceCore)
 
 
 ## ec2-win-DumpMemory-isolated
@@ -38,7 +38,7 @@ Prerequisites:
 - An S3 Bucket accessible by the EC2 instance for artificats upload
 - A VPC configuration that allows S3 access from an internet isolated (non public) EC2 Instance https://aws.amazon.com/premiumsupport/knowledge-center/connect-s3-vpc-endpoint/
 
-- OPTIONAL: if you run the script via AWS SSM the EC2 instance must have assigned an IAM role that includes SSM support
+- OPTIONAL: if you run the script via AWS SSM the EC2 instance must have assigned an IAM role that includes SSM support (AmazonSSMManagedInstanceCore)
 
 
 ## setup-DumpMemory-isolated

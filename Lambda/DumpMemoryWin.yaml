@@ -1,0 +1,20 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: Win Memory Dump Lambda for Memory Automation Step Function
+Resources:
+  DumpMemoryWin:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: index.lambda_handler
+      Runtime: python3.9
+      CodeUri: .
+      Description: Win Memory Dump Lambda for Memory Automation Step Function
+      MemorySize: 128
+      Timeout: 60
+      Role: 'arn:aws:iam::337083587652:role/MemoryAutomationLambdaRole'
+      Environment:
+        Variables:
+          AccountId: '337083587652'
+          Partition: aws
+          S3Bucket: 939722037030-ir-artifacts
+          S3CopyRole: 'arn:aws:iam::337083587652:role/MemoryAcquisition'
