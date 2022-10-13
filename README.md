@@ -11,7 +11,7 @@ The code of the win memory dumps benefits form optimizations and ideas of the CS
 https://github.com/dwmetz/CSIRT-Collect
 
 
-ec2-win-DumpMemory-net
+## ec2-win-DumpMemory-net
 
 Function: 
 This script will 
@@ -28,7 +28,7 @@ Prerequisites:
 - OPTIONAL: if you run the script via AWS SSM the EC2 instance must have assigned an IAM role that includes SSM support
 
 
-ec2-win-DumpMemory-isolated
+## ec2-win-DumpMemory-isolated
 Function: 
 This script will 
 - download Magnet Ram Capture, WinPmem, AWS CLI from a preconfigured AWS S3 bucket to your AWS EC2 instance
@@ -43,7 +43,7 @@ Prerequisites:
 - OPTIONAL: if you run the script via AWS SSM the EC2 instance must have assigned an IAM role that includes SSM support
 
 
-setup-DumpMemory-isolated
+## setup-DumpMemory-isolated
 Function: 
 This script will 
 - download Magnet Ram Capture, WinPmem, AWS CLI from internet to your AWS S3 bucket
