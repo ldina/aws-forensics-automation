@@ -26,11 +26,12 @@ $WinPmemURL = "https://github.com/Velocidex/WinPmem/releases/download/v4.0.rc1/w
 
 # Binaries download
 Write-Host -Fore Cyan "Downloading binaries to CloudShell"
-curl $AwsCliURL --output AWSCLIV2.msi
-curl $MagnetURL --output magnet.exe
-curl $WinPmemURL --output winpmem.exe
+wget $AwsCliURL -O AWSCLIV2.msi -q
+wget $MagnetURL -O magnet.exe -q
+wget $WinPmemURL -O winpmem.exe -q
 
 # Copying  downloaded binaries to an S3 bucket
 Write-Host -Fore Cyan "Uploading binaries to the S3 bucket"
+aws s3 cp /home/cloudshell-user/AWSCLIV2.msi s3://$MyS3BucketInstaller --no-progress
 aws s3 cp /home/cloudshell-user/magnet.exe s3://$MyS3BucketInstaller --no-progress
 aws s3 cp /home/cloudshell-user/winpmem.exe s3://$MyS3BucketInstaller --no-progress
