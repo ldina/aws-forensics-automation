@@ -1,14 +1,15 @@
 <#
-aws-ec2-memory-forensic.ps1 v1.0
+ec2-win-DumpMemory-net.ps1 v1.0
 https://github.com/ldina
 Author: Lorenzo Dina - ldina - @joecondo
 Function: This script will 
-- download Magnet Ram Capture, WinPmem, AWS CLI to your AWS EC2 instance
+- download Magnet Ram Capture, WinPmem, AWS CLI from internet to your AWS EC2 instance
 - capture a memory image with Magnet Ram Capture and WinPmem
 - hash the captured dump files
 - capture OS build info
 - transfer the artifacts back to an AWS S3 bucket
 Prerequisites:
+- Internet connection for files download
 - An S3 Bucket accessible by the EC2 instance
 - Updated URL references for tool download
 - OPTIONAL: if you run the script via AWS SSM the EC2 instance must have assigned an IAM role that includes SSM support

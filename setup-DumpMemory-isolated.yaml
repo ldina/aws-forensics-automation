@@ -1,0 +1,19 @@
+# S3 bucket name for binaries download
+$MyS3BucketInstaller = "afa-installer"
+#AWS CLI download URL
+$AwsCliURL = "https://awscli.amazonaws.com/AWSCLIV2.msi"
+# Magnet Ram capture download URL
+$MagnetURL = "https://storage.googleapis.com/mfi-files/free_tools/MagnetRAMCapture/MRCv120.exe"
+# WinPmem download URL
+$WinPmemURL = "https://github.com/Velocidex/WinPmem/releases/download/v4.0.rc1/winpmem_mini_x64_rc2.exe"
+
+# Binaries download
+Write-Host -Fore Cyan "Downloading binaries to CloudShell"
+curl $AwsCliURL --output AWSCLIV2.msi
+curl $MagnetURL --output magnet.exe
+curl $WinPmemURL --output winpmem.exe
+
+# Copying  downloaded binaries to an S3 bucket
+Write-Host -Fore Cyan "Uploading binaries to S3 bucket"
+aws s3 cp /home/cloudshell-user/magnet.exe s3://$MyS3BucketInstaller --no-progress
+aws s3 cp /home/cloudshell-user/winpmem.exe s3://$MyS3BucketInstaller --no-progress
