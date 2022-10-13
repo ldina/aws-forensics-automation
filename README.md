@@ -36,6 +36,7 @@ Functions:
 Prerequisites:
 - An S3 Bucket pre-configured with binaries of the tool to be downloaded (see setup-DumpMemory-isolated )
 - An S3 Bucket accessible by the EC2 instance for artificats upload
+- A VPC configuration that allows S3 access from an internet isolated (non public) EC2 Instance https://aws.amazon.com/premiumsupport/knowledge-center/connect-s3-vpc-endpoint/
 
 - OPTIONAL: if you run the script via AWS SSM the EC2 instance must have assigned an IAM role that includes SSM support
 
