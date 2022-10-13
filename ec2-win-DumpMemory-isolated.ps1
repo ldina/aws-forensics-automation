@@ -9,8 +9,8 @@ Function: This script will
 - capture OS build info
 - transfer the artifacts back to an AWS S3 bucket
 Prerequisites:
-- An S3 Bucket accessible by the EC2 instance for artificat upload
-- An S3 Bucket pre configured with binaries for tool download
+- An S3 Bucket pre-configured with binaries of the tool to be downloaded
+- An S3 Bucket accessible by the EC2 instance for artificats upload
 - OPTIONAL: if you run the script via AWS SSM the EC2 instance must have assigned an IAM role that includes SSM support
 
 v1.0 - "Initial Release"
