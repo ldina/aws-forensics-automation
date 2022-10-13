@@ -36,27 +36,21 @@ $MyS3BucketInstaller = "afa-installer"
 # Destination S3 bucket name
 $MyS3Bucket = 'localec2dump'
 
-#AWS CLI download URL
-$AwsCliURL = "https://awscli.amazonaws.com/AWSCLIV2.msi"
-
-# Magnet Ram capture download URL
-$MagnetURL = "https://storage.googleapis.com/mfi-files/free_tools/MagnetRAMCapture/MRCv120.exe"
-
-# WinPmem download URL
-$WinPmemURL = "https://github.com/Velocidex/WinPmem/releases/download/v4.0.rc1/winpmem_mini_x64_rc2.exe"
-
 # Installing AWS CLI
 Write-Host -Fore Cyan "Installing AWS CLI"
-msiexec.exe /i $AwsCliURL /q
+cd "C:\Program Files\Amazon\AWSCLIV2"
+.\aws.exe s3 cp s3://$MyS3BucketInstaller/AWSCLIV2.msi C:\Windows\Temp\  --no-progress
+cd  C:\Windows\Temp\
+msiexec.exe /i AWSCLIV2.msi /q
 
 # Installing Magnet RAM Capture
 Write-Host -Fore Cyan "Installing Magnet RAM Capture"
-cd  C:\Windows\Temp\
+cd "C:\Program Files\Amazon\AWSCLIV2"
 .\aws.exe s3 cp s3://$MyS3BucketInstaller/magnet.exe C:\Windows\Temp\  --no-progress
-#curl $MagnetURL -outfile magnet.exe
 
 # Installing WinPmem Memory Dumper
 Write-Host -Fore Cyan "Installing WinPmem Memory Dumper"
+cd "C:\Program Files\Amazon\AWSCLIV2"
 .\aws.exe s3 cp s3://$MyS3BucketInstaller/winpmem.exe C:\Windows\Temp\  --no-progress
  
 # Composing a timestamped name for the memdump (newbie way)
@@ -70,9 +64,10 @@ $MyMemDumpInstanceIdTimeStamped += '_'
 $MyMemDumpInstanceIdTimeStamped += $MyMemDumpInstanceId
 
 # Executing WinPmem Memory Dumper
-$MyMemDumpInstanceIdTimeStamped1 = $MyMemDumpInstanceIdTimeStamped
+$MyMemDumpInstanceIdTimeStamped1 = $MyMemDumpInstanceIdTimeStampedls
 $MyMemDumpInstanceIdTimeStamped1 += '_winpmem.raw'
 Write-Host -Fore Cyan "Dumping RAM method 1"
+cd  C:\Windows\Temp\
 .\winpmem.exe $MyMemDumpInstanceIdTimeStamped1
 
 # Executing Magnet RAM Capture
@@ -115,6 +110,7 @@ del C:\Windows\Temp\$MyMemDumpHash
 del C:\Windows\Temp\$MyMemDumpOSVersion
 del C:\Windows\Temp\magnet.exe
 del C:\Windows\Temp\winpmem.exe
+del C:\Windows\Temp\AWSCLIV2.msi
 #del C:\Windows\Temp\EULAaccepted.dat
 
 cd  C:\Windows\Temp\
